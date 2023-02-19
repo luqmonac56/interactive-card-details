@@ -1,5 +1,5 @@
 <template>
-    <div class="flex p-8 w-2/5 flex-col gap-8">
+    <!-- <div class="flex p-8 w-2/5 flex-col gap-8">
         <div class="front relative">
             <div class="p-6">
                 <img src="../assets/images/card-logo.svg" alt="">
@@ -15,15 +15,40 @@
         <div class="back relative">
             <p class="absolute right-16 top-[43%] text-lg">123</p>
         </div>
+    </div> -->
+
+    <div class="absolute top-[10%]  left-8">
+        <div class="flex p-8 flex-col gap-8">
+            <div class="front relative">
+                <div class="p-6">
+                    <img src="../assets/images/card-logo.svg" alt="">
+                </div>
+                <div class="absolute p-6 bottom-2  w-[100%] my-0 mx-auto">
+                    <!-- <p class="text-center text-[35px]">{{ defaultNumber || finalNumber}} </p> -->
+                    <div class="flex mt-4 justify-between">
+                        <p>{{ defaultName || cardHolder.toUpperCase() }}</p>
+                        <p>00/00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="back relative">
+                <!-- <p class="absolute right-16 top-[43%] text-lg">{{cvc}}</p> -->
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
-    setup () {
+    props: ['finalNumber', 'cardHolder'],
+    setup (props) {
+
+        const defaultNumber = ref('0000 0000 0000 0000')
+        const defaultName = ref('Janeee Doe')
         
 
-        return {}
+        return {defaultNumber,defaultName}
     }
 }
 </script>
