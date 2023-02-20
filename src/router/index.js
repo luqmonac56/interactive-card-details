@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import index from '../views/index.vue'
-// import Card from '../components/Card.vue'
+import Card from '../views/Card.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,12 +9,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: index
+    },
+    {
+      path: '/card',
+      name: 'Card',
+      component: Card
     }
-    // {
-    //   path: '/card',
-    //   name: 'Card',
-    //   component: Card
-    // }
   ]
 })
 

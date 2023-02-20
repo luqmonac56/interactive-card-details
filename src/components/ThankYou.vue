@@ -5,16 +5,24 @@
             <h2 class=" font-bold text-2xl">THANK YOU!</h2>
             <P class=" text-[#8080807e]">We've added your card details</P>
         </div>
+        <!-- <button @click="handleContinue"  class=" submit">Continue</button> -->
         <router-link class=" submit" :to="{name: 'home'}">Continue</router-link>
     </div>
 </template>
 
 <script>
 export default {
-    setup () {
-        
+    props: ['formSubmitted'],
+    setup (props) {
 
-        return {}
+        // handleContinue = ()=>{
+        //     console.log(props.formSubmitted );
+
+        // }
+
+        return {
+            // handleContinue,
+        }
     }
 }
 </script>
@@ -28,6 +36,8 @@ export default {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    outline: none;
+    border: none;
   }
 
 </style>
