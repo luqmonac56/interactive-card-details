@@ -6,7 +6,7 @@
           <div class=" absolute left-8 md:left-0 md:top-1/2 md:-translate-y-1/2 md:translate-x-[20%]  flex flex-col-reverse md:flex-col gap-0 md:gap-8">
             <div class="front relative z-50">
               <img
-                class="front-img w-full h-full animate__animated animate__backInLeft animate__delay-1s animate__slow"
+                class="front-img w-full h-full "
                 src="../assets/images/bg-card-front.png"
                 alt=""
               />
@@ -18,11 +18,11 @@
                 />
                 <div class="absolute bottom-4 w-full px-4">
                   <p
-                    class="text-center tracking-wide text-[22px] lg:text-[22px] xl:text-[220%]"
+                    class="text-center tracking-wide text-[20px] lg:text-[22px] xl:text-[220%]"
                   >
                   {{ defaultNumber || finalNumber }}
                   </p>
-                  <div class="flex mt-2 md:mt-4 justify-between">
+                  <div class=" text-[12px] flex mt-2 md:mt-4 justify-between">
                     <span>{{ defaultName || cardHolder.toUpperCase() }}</span>
                     <span
                       >{{ defaultMonth || month }}/{{
@@ -53,11 +53,12 @@
           <form
             v-if="!formSubmitted"
             @submit.prevent="formSubmitted = !formSubmitted"
-            class="m-auto w-full px-6 max-w-[400px] flex flex-col justify-center gap-6 animate__animated animate__fadeInBottomRight"
+            class="m-auto w-full px-6 max-w-[400px] flex flex-col justify-center gap-6"
           >
             <div>
               <label for="card-holder">CARDHOLDER NAME</label>
               <input
+              class="text-[14px]"
                 id="card-holder"
                 @input="defaultName = ''"
                 v-model="cardHolder"
@@ -69,6 +70,7 @@
             <div>
               <label for="card-number">CARD NUMBER</label>
               <input
+                class="text-[14px]"
                 id="card-number"
                 @input="defaultNumber = ''"
                 minlength="16"
@@ -87,7 +89,7 @@
                     v-model="month"
                     @input="defaultMonth = ''"
                     required
-                    class="expiry-date"
+                    class="expiry-date text-[14px]"
                     minlength="2"
                     maxlength="2"
                     type="text"
@@ -97,7 +99,7 @@
                     v-model="year"
                     @input="defaultYear = ''"
                     required
-                    class="expiry-date"
+                    class="expiry-date text-[14px]"
                     minlength="2"
                     maxlength="2"
                     type="text"
@@ -109,6 +111,7 @@
                 <label for="cvc">CVC</label>
                 <input
                   @input="defaultCvc = ''"
+                  class="text-[14px]"
                   required
                   v-model="cvc"
                   minlength="3"
@@ -158,9 +161,13 @@ export default {
       return val.replace(/(.{4})/g, "$1 ");
     });
 
-    const handleContinue = ()=>{
+    const handleContinue =  ()=>{
       formSubmitted.value = !formSubmitted.value
-      
+      cardHolder.value = defaultName.value
+      cardNumber.value = defaultNumber.value
+      month.value = defaultMonth.value
+      year.value = defaultYear.value
+      cvc.value = defaultCvc.value
     }
 
     return {
@@ -278,3 +285,4 @@ div input {
 }
 </style>
 <!-- width: 440px; -->
+<!-- animate__animated animate__backInLeft animate__delay-1s animate__slow -->
