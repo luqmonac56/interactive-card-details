@@ -1,35 +1,12 @@
 <template>
-  <div class="relative">
-    <!-- <Card :cardHolder="cardHolder"  :finalNumber="finalNumber"     /> -->
-
-    <!-- <div class=" absolute top-6 lg:top-[10%] lg:left-8">
-      <div class="flex p-8 flex-col gap-8">
-        <div class="front relative  animate__animated animate__backInLeft animate__delay-1s animate__slow">
-          <div class="p-6">
-            <img src="../assets/images/card-logo.svg" alt="" />
-          </div>
-          <div class="absolute p-6 bottom-2 w-[100%] my-0 mx-auto">
-            <p class="text-center text-[35px]">
-              {{ defaultNumber || finalNumber }}
-            </p>
-            <div class="flex mt-4 justify-between">
-              <p>{{ defaultName || cardHolder.toUpperCase() }}</p>
-              <p>{{ defaultMonth || month }}/{{ defaultYear || year }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="back relative animate__animated animate__backInRight animate__delay-2s animate__slow">
-          <p class="absolute right-16 top-[43%] text-lg">{{ defaultCvc || cvc }}</p>
-        </div>
-      </div>
-    </div> -->
+  <div class="relative w-[100vw]">
     <div class="flex">
       <div class="parent  h-full flex flex-col gap-28 md:flex-row">
         <div class="div1 h-[30vh] md:h-[100vh] relative md:flex-[1] ">
-          <div class="cards absolute md:top-1/2 md:-translate-y-1/2 md:translate-x-[20%] translate-x-[20%] flex flex-col-reverse md:flex-col gap-0 md:gap-8">
+          <div class=" absolute left-8 md:left-0 md:top-1/2 md:-translate-y-1/2 md:translate-x-[20%]  flex flex-col-reverse md:flex-col gap-0 md:gap-8">
             <div class="front relative z-50">
               <img
-                class="front-img w-full h-full"
+                class="front-img w-full h-full animate__animated animate__backInLeft animate__delay-1s animate__slow"
                 src="../assets/images/bg-card-front.png"
                 alt=""
               />
@@ -57,7 +34,7 @@
               </div>
             </div>
             <div
-              class="back relative translate-x-8 md:translate-x-16 translate-y-14 md:translate-y-0"
+              class="back relative translate-x-8 md:translate-x-16 translate-y-14 md:translate-y-0  "
             >
               <img
                 class="w-full h-full back-img"
@@ -71,27 +48,6 @@
               </p>
             </div>
           </div>
-          <!-- <div class=" lg:absolute lg:top-[10%] lg:left-8">
-            <div class="flex p-8 flex-col gap-8 w-full">
-              <div class="front relative  animate__animated animate__backInLeft animate__delay-1s animate__slow">
-                <div class="p-6">
-                  <img src="../assets/images/card-logo.svg" alt="" />
-                </div>
-                <div class="absolute p-6 bottom-2 w-[100%] my-0 mx-auto">
-                  <p class="text-center text-[35px]">
-                    {{ defaultNumber || finalNumber }}
-                  </p>
-                  <div class="flex mt-4 justify-between">
-                    <p>{{ defaultName || cardHolder.toUpperCase() }}</p>
-                    <p>{{ defaultMonth || month }}/{{ defaultYear || year }}</p>
-                  </div>
-                </div>
-              </div>
-              <div class="back relative animate__animated animate__backInRight animate__delay-2s animate__slow">
-                <p class="absolute right-16 top-[43%] text-lg">{{ defaultCvc || cvc }}</p>
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="div2 md:flex-[2]">
           <form
@@ -168,7 +124,7 @@
             v-else
             class="m-auto max-w-[400px] flex flex-col justify-center gap-6 animate__animated animate__fadeInBottomRight"
           >
-            <ThankYou :formSubmitted="formSubmitted" />
+            <ThankYou :handleContinue="handleContinue" />
           </div>
         </div>
       </div>
@@ -202,6 +158,11 @@ export default {
       return val.replace(/(.{4})/g, "$1 ");
     });
 
+    const handleContinue = ()=>{
+      formSubmitted.value = !formSubmitted.value
+      
+    }
+
     return {
       defaultName,
       defaultNumber,
@@ -215,6 +176,7 @@ export default {
       year,
       cvc,
       formSubmitted,
+      handleContinue
     };
   },
 };

@@ -1,18 +1,18 @@
 <template>
-    <div class="text-center w-[400px]  flex flex-col items-center gap-6 ">
+    <div class="text-center w-[400px] px-6  flex flex-col items-center gap-6 ">
         <img src="../assets/images/icon-complete.svg" alt="complete">
         <div>
             <h2 class=" font-bold text-2xl">THANK YOU!</h2>
             <P class=" text-[#8080807e]">We've added your card details</P>
         </div>
         <!-- <button @click="handleContinue"  class=" submit">Continue</button> -->
-        <router-link class=" submit" :to="{name: 'home'}">Continue</router-link>
+        <button class=" submit" @click="handleContinue">Continue</button>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['formSubmitted'],
+    props: ['handleContinue'],
     setup (props) {
 
         // handleContinue = ()=>{
