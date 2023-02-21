@@ -15,13 +15,10 @@ export default {
     props: ['handleContinue'],
     setup (props) {
 
-        // handleContinue = ()=>{
-        //     console.log(props.formSubmitted );
 
-        // }
 
         return {
-            // handleContinue,
+
         }
     }
 }

@@ -7,6 +7,7 @@ import router from './router'
 import 'animate.css';
 
 import './assets/base.css'
+import './assets/style.css'
 
 const app = createApp(App)
 

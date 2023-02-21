@@ -3,7 +3,7 @@
     <div class="flex">
       <div class="parent  h-full flex flex-col gap-28 md:flex-row">
         <div class="div1 h-[30vh] md:h-[100vh] relative md:flex-[1] ">
-          <div class=" absolute left-8 md:left-0 md:top-1/2 md:-translate-y-1/2 md:translate-x-[20%]  flex flex-col-reverse md:flex-col gap-0 md:gap-8">
+          <div class=" absolute left-8 md:left-0 md:top-1/2 md:-translate-y-1/2 md:translate-x-[20%]  2xl:translate-x-[90%] flex flex-col-reverse md:flex-col gap-0 md:gap-8">
             <div class="front relative z-50">
               <img
                 class="front-img w-full h-full "
@@ -18,7 +18,7 @@
                 />
                 <div class="absolute bottom-4 w-full px-4">
                   <p
-                    class="text-center tracking-wide text-[20px] lg:text-[22px] xl:text-[220%]"
+                    class="text-center tracking-wide text-[20px] lg:text-[22px] xl:text-[200%]"
                   >
                   {{ defaultNumber || finalNumber }}
                   </p>
@@ -125,7 +125,7 @@
           </form>
           <div
             v-else
-            class="m-auto max-w-[400px] flex flex-col justify-center gap-6 animate__animated animate__fadeInBottomRight"
+            class="m-auto max-w-[400px] flex flex-col justify-center gap-6 animate__animated animate__backInRight"
           >
             <ThankYou :handleContinue="handleContinue" />
           </div>
@@ -193,7 +193,6 @@ export default {
 .parent {
   color: hsl(278, 68%, 11%);
   width: 100%;
-  font-family: cursive;
 }
 
 .div1 {
