@@ -110,6 +110,7 @@
               <div>
                 <label for="cvc">CVC</label>
                 <input
+                  id="cvc"
                   @input="defaultCvc = ''"
                   class="text-[14px]"
                   required
